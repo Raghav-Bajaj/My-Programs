@@ -6,72 +6,69 @@ public class Main {
   public static int minDominoRotations(int[] top, int[] bottom) {
    int count1 = 0 ;
    int count2 = 0 ;
-   int n = top.length , i = 1  ;
-   int numb = top[0];
-   while(i < n)
-   {
-       if(top[i] == numb)
-       {
-           i++;
-       }else if(bottom[i] == numb)
-       {
-           count1++;
-           i++;
-       }else{
-           count1 = Integer.MAX_VALUE ;
-           break ;
-       }
-   }
-   i = 1;
-    while(i < n)
-   {
-       if(top[i] == numb)
-       {
-           count2++ ;
-           i++;
-       }else if(bottom[i] == numb)
-       {
-           
-           i++;
-       }else{
-           count2 = Integer.MAX_VALUE ;
-           break ;
-       }
-   }
    int count3 = 0 ;
    int count4 = 0 ;
-   i = 1  ;
-   numb = bottom[0];
+   int n = top.length , i = 0  ;
+   int numb1 = top[0];
+   int numb2 = bottom[0] ;
    while(i < n)
    {
-       if(bottom[i] == numb)
+      if( count1 != Integer.MAX_VALUE )
        {
-           i++;
-       }else if(top[i] == numb)
+            if(top[i] == numb1)
+       {
+         
+       }else if(bottom[i] == numb1)
+       {
+           count1++;
+ 
+       }else{
+           count1 = Integer.MAX_VALUE ;
+       }
+       }
+       if( count2 != Integer.MAX_VALUE )
+       {
+            if(bottom[i] == numb1)
+       {
+      
+ 
+       }else if(top[i] == numb1)
+       {     count2++ ;
+       }else{
+           count2 = Integer.MAX_VALUE ;
+       }
+       }
+       if( count3 != Integer.MAX_VALUE )
+       {
+           if(bottom[i] == numb2)
+       {
+
+       }else if(top[i] == numb2)
        {
            count3++;
-           i++;
+
        }else{
            count3 = Integer.MAX_VALUE ;
-           break ;
+  
        }
-   }
-   i = 1;
-    while(i < n)
-   {
-       if(bottom[i] == numb)
+       }
+       if(  count4 != Integer.MAX_VALUE )
        {
-           count4++ ;
-           i++;
-       }else if(top[i] == numb)
+            if(top[i] == numb2)
        {
-           
-           i++;
+          
+
+       }else if(bottom[i] == numb2)
+       {
+            count4++ ;
        }else{
            count4 = Integer.MAX_VALUE ;
-           break ;
        }
+       }
+       i++;
+      
    }
+   
    int res = Math.min(Math.min(count1,count2) , Math.min(count3,count4));
    if(res == Integer.MAX_VALUE)
    {
