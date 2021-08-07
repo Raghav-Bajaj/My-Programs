@@ -12,12 +12,13 @@ public class Main {
        while(i <= j)
        {
            int mid = (i+j)/2 ;
-           if( arr[mid] < arr[mid-1])
-           {
-               return arr[mid];
-           }else if(arr[mid] > arr[mid+1])
+           if(arr[mid] > arr[mid+1])
            {
                return arr[mid+1] ;
+           }
+          else if( arr[mid] < arr[mid-1])
+           {
+               return arr[mid];
            }
            else if(arr[i] <= arr[mid])
                {
