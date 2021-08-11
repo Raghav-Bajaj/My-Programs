@@ -47,6 +47,11 @@ class Main {
            pre = pre.next ;
            c2 = c2.next ;
        }
+           if(carry != 0)
+    {
+        pre.next = new ListNode(carry);
+        pre = pre.next ;
+    }
        dummy = reverse(dummy.next);
        return dummy ;
     }
